@@ -10,6 +10,7 @@ INSTALL = ARCHFLAGS=$(ARCHFLAGS) ./venv/bin/pip install
 # Build virtualenv, to ensure we have all the dependencies.
 .env.install:
 	virtualenv ./venv
+	$(INSTALL) -U setuptools pip >> loadtest.log && \
 	$(INSTALL) pexpect >> loadtest.log && \
 	$(INSTALL) configparser==3.3.0r2 >> loadtest.log && \
 	$(INSTALL) gevent >> loadtest.log && \
